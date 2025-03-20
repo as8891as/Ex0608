@@ -97,4 +97,46 @@ public class MainActivity extends AppCompatActivity {
             currentLevel++;
         }
     }
+
+    public void level2_submitted(View view) {
+        if (!eT_number_level2.getText().toString().isEmpty() && currentLevel==2) {
+            user_answer = Integer.parseInt(eT_number_level2.getText().toString());
+            if (user_answer == num1 + num2)
+            {
+                iV_level2.setImageResource(R.drawable.correct);
+                numCorrectAnswers++;
+            }
+            else
+            {
+                iV_level2.setImageResource(R.drawable.incorrect);
+            }
+            iV_level2.setVisibility(VISIBLE);
+            num1 += num2;
+            num2 = rnd.nextInt(90) + 10;
+            tV_level3_high.setText(num1 + "");
+            tV_level3_low.setText(num2 + "");
+            tV_level3_high.setVisibility(VISIBLE);
+            tV_level3_low.setVisibility(VISIBLE);
+            eT_number_level3.setVisibility(VISIBLE);
+            btn_level3.setVisibility(VISIBLE);
+            currentLevel++;
+        }
+    }
+
+    public void level3_submitted(View view) {
+        if (!eT_number_level3.getText().toString().isEmpty() && currentLevel==3) {
+            user_answer = Integer.parseInt(eT_number_level3.getText().toString());
+            if (user_answer == num1 + num2)
+            {
+                iV_level3.setImageResource(R.drawable.correct);
+                numCorrectAnswers++;
+            }
+            else
+            {
+                iV_level3.setImageResource(R.drawable.incorrect);
+            }
+            iV_level3.setVisibility(VISIBLE);
+            btn_restart.setText(numCorrectAnswers+"/3, "+((int)((double)(numCorrectAnswers*100))/3)+"%");
+        }
+    }
 }
