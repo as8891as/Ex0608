@@ -1,5 +1,6 @@
 package com.example.ex0608;
 
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 import android.os.Bundle;
@@ -138,5 +139,28 @@ public class MainActivity extends AppCompatActivity {
             iV_level3.setVisibility(VISIBLE);
             btn_restart.setText(numCorrectAnswers+"/3, "+((int)((double)(numCorrectAnswers*100))/3)+"%");
         }
+    }
+
+    public void restartGame(View view) {
+        currentLevel = 1;
+        numCorrectAnswers = 0;
+        tV_level3_high.setVisibility(INVISIBLE);
+        tV_level3_low.setVisibility(INVISIBLE);
+        tV_level2_high.setVisibility(INVISIBLE);
+        tV_level2_low.setVisibility(INVISIBLE);
+        num1 = rnd.nextInt(90)+10;
+        num2 = rnd.nextInt(90)+10;
+        tV_level1_high.setText(num1+"");
+        tV_level1_low.setText(num2+"");
+        eT_number_level1.getText().clear();
+        eT_number_level2.setVisibility(INVISIBLE);
+        eT_number_level2.getText().clear();
+        eT_number_level3.setVisibility(INVISIBLE);
+        eT_number_level3.getText().clear();
+        iV_level2.setVisibility(INVISIBLE);
+        iV_level3.setVisibility(INVISIBLE);
+        btn_level2.setVisibility(INVISIBLE);
+        btn_level3.setVisibility(INVISIBLE);
+        btn_restart.setText("NEW");
     }
 }
